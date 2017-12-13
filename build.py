@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 import subprocess
-from pynt import task
+from navio.builder import task
 
 @task()
 def apidoc():
