@@ -21,7 +21,7 @@ def test(*args):
 def check_uncommited():
   result = subprocess.check_output(['git', 'status', '--porcelain'])
   if result:
-    raise 'There are uncommited files'
+    raise Exception('There are uncommited files')
 
 @task()
 def generate_rst():    
@@ -88,7 +88,7 @@ def release(ver = None):
 def pypi():
   subprocess.call(['python', 'setup.py', 'sdist'])
   args = ['twine', 'upload']
-  print 'DEBUG: {} {}'.format(os.environ.get('TRAVIS_PULL_REQUEST', False), os.environ.get('TRAVIS_TAG', False))
+  print 'DEBUG: TRAVIS_PULL_REQUEST:{} TRAVIS_TAG:{}'.format(os.environ.get('TRAVIS_PULL_REQUEST', False), os.environ.get('TRAVIS_TAG', False))
   if not os.environ.get('TRAVIS_PULL_REQUEST', False) and os.environ.get('TRAVIS_TAG', False):
     args.append('--repository-url')
     args.append('https://upload.pypi.org/legacy/')
