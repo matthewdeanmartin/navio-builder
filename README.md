@@ -235,7 +235,7 @@ $ ./b t
 
 It will be great if you can raise a [pull request](https://help.github.com/articles/using-pull-requests) once you are done.
 
-*If you find any bugs or need new features please raise a ticket in the [issues section](https://github.com/naviotech/navio-builder/issues) of the github repo.*
+If you find any bugs or need new features please raise a ticket in the [issues section](https://github.com/naviotech/navio-builder/issues) of the github repo.
     
 ## License
 

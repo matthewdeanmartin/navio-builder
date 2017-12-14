@@ -22,6 +22,8 @@ def test(*args):
 def generate_rst():
     
     subprocess.call(['pandoc', '-f', 'markdown', '-t', 'rst', '-o', 'README.rst', 'README.md'])
+    subprocess.call(['pandoc', '-f', 'markdown', '-t', 'rst', '-o', 'CHANGES.rst', 'CHANGES.md'])
+
 
 @task(generate_rst)
 def upload():
