@@ -260,9 +260,9 @@ It will be great if you can raise a `pull
 request <https://help.github.com/articles/using-pull-requests>`__ once
 you are done.
 
-*If you find any bugs or need new features please raise a ticket in the
+If you find any bugs or need new features please raise a ticket in the
 `issues section <https://github.com/naviotech/navio-builder/issues>`__
-of the github repo.*
+of the github repo.
 
 License
 -------

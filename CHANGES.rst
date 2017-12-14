@@ -6,3 +6,4 @@ Changes
 
 -  Initial release. Fork from pynt.
 -  Rename done to modules
+-  Add task running time to output
