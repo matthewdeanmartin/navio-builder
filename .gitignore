@@ -7,4 +7,5 @@ build
 .pydevproject
 .ropeproject
 *.out
-pynt.egg-info
+*.egg-info
+.pypirc

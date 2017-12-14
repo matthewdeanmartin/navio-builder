@@ -7,7 +7,12 @@ python:
   - "3.6"
 #  - "pypy"  #module level vars in tests are not mutable in pypy?
 
-script: 
-  - py.test
-
+before_install:
+  openssl aes-256-cbc -K $encrypted_490e0255a7c3_key -iv $encrypted_490e0255a7c3_iv -in .pypirc.enc -out .pypirc -d
+  
+script: |
+  ./nb-local test &&
+  if [ "$TRAVIS_TAG" ]; then
+    ./nb-local push_to_pypi; 
+  fi
   

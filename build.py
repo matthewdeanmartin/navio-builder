@@ -15,8 +15,7 @@ def test(*args):
   """
   Run unit tests.
   """
-  subprocess.call(["py.test-2.7"] + list(args))
-  subprocess.call(["py.test-3.3"] + list(args))
+  subprocess.call(["py.test"] + list(args))
 
 @task()
 def check_uncommited():
@@ -84,5 +83,9 @@ def release(ver = None):
   create_tag()
   generate_rst()
   push()
+
+@task(test)
+def push_to_pypi():
+  pass
 
 __DEFAULT__ = test
