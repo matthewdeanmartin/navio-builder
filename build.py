@@ -69,6 +69,7 @@ def create_tag():
 
 @task()
 def push():
+  subprocess.call(['git', 'push', '--verbose'])
   subprocess.call(['git', 'push', '--tags', '--verbose'])
 
 @task(generate_rst)
@@ -78,8 +79,9 @@ def upload():
 
 @task()
 def release(ver = None):
-  update_version(ver)
   check_uncommited()
+  update_version(ver)
+  create_tag()
   generate_rst()
   push()
 
