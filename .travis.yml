@@ -11,16 +11,12 @@ env:
   - secure: P+iRGUn/nbt4fQLFDsFWPafoadYllGElj3+BjgSKLwypFd35TNIhaldyHSc6APK97KVwhYqxsfa0oPzDIJRKg3JA3O3gcLOiEPsR9m9jjf7is6czO16lBuBVfBiUZl01FXw+/2+gOsPjOsxn4U8JxdWuKEQO+qTLfu4A5x43M/z9nHDbgqgulRAaLqjD/ZfznrdSGodaEOhl9CJQrCkN6E4CCR/JT6EYzBsM6YUfk6TsONedAN1xfTeBvWUHCgqHkDg1ieLJUtpFlto351m9vbJi7+tCq/QRW8iv6s5BgrsD9W4w+VMhC/JQ5xlYeh18SDlCHnw/IMrEYWPVmUk7+6AZe7XAjlUObDDapXcBuiucCS8qMdxrPuYc5Vd4G0+mwZYSmvKnA6VfRCjASu0Z6Em+njsCcqY5EegT+FwQI3z49lUZ1YUpTdS/OzuPqCxpnevz4mcXGKl8UfA2k6/Pjix0cicALzVCy738E/nsXSQwPZHn9PQrTIuuYQ/lAkvmv088dM/f1t7mLnnCVmVXyx0H7B4NU4ooA35NjnO6JeHTzUBmwFPJWZXB54OFcjNDrCMZ3TLcNoeE6tNY1vYO2xvKo5139TsxOu/w6LtULfdMrgC7stz8GeaAZoaZFWXDJqifj+C7vDr8RnYcndWjXWp90N+XhisIIuPREdiqbPU=
   - secure: dgXoaUh4/f3en/yl763/78/yWGS2TnZN8dcOb/1k9yIDs4yoCOqGs477uXAE41ZcmS1jk0omhpaTmShw7hPYiTqOgR6fhI+8fbNaO3XixLO7WDDrGQQdlYQZCcisEEbsLAmeWbyFgkhNM9x9UWtIbjx2i9oOLieFM5iVZyAX0R31aeOp+yeB6wiiCNl9Ow+n5XpecRQsVtTySbkRF07ZrknnBjSzm88CHtTXXyMuN7jMKz98MwBEKxcV1hn6ur/Eq8LV4WPqGpcjmQmfQ//MAMFFUefvO211likxOHj9Twbo9CJESJmrnpq49VAZREaRFVycH3DaN5nM8WlBI+WrPnQfqKDJXr13LXThHdDDLvn9lUeUNDZMPlZahUnBVavIKf7QBvHW909zYd5pzFnyWelLRMgHJQqwSAtTeI0DewJUsAIZUFMpRVO6EH+1hJeLhHmzbgGH7q17MOqxnZrgvmT/zIsyBHtL6VmcKhicpopBdWO60LHQKl7O3T7zKE7ooioGPt95ITwwEe9wAiXKMRlP2Qab8BQfh3YKUulT+hj6EFlVocw/aqFdq1gpcmfI/OQMjFXdzh9o+1gTEPi9dfIfjYyKlR9N2WbVrz9Dm3UZ+2wQIvS85OTkRxgOSlWHXwm4e94FZbDJalkKDddPi8XGjsUfotFZf2TCSaFGU64=
 
-stages:
-  - test
-  - delpoy
+install: pip install twine
 
 jobs:
   include:
-    - stage: test
-      install: pip install twine
-      script: ./nb-local test
+    - script: ./nb-local test
     - stage: deploy
       python: 3.6
-      install: pip install twine
+      # install: pip install twine
       script: ./nb-local pypi
