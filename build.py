@@ -19,6 +19,12 @@ def test(*args):
     subprocess.call(["py.test-3.3"] + list(args))
 
 @task()
+def check_uncommited():
+    result = subprocess.check_output(['git', 'status', '--porcelain'])
+    if result:
+      raise 'There are uncommited files'
+
+@task()
 def generate_rst():
     
     subprocess.call(['pandoc', '-f', 'markdown', '-t', 'rst', '-o', 'README.rst', 'README.md'])
@@ -29,5 +35,9 @@ def generate_rst():
 def upload():
     subprocess.call(['ssh-add', '~/.ssh/id_rsa'])
     subprocess.call(['python', 'setup.py', 'sdist', 'bdist_wininst', 'upload'])
+
+@task(test, check_uncommited, generate_rst)
+def release():
+  pass
 
 __DEFAULT__ = test
