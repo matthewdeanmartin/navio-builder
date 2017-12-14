@@ -88,8 +88,13 @@ def release(ver = None):
 def pypi():
   subprocess.call(['python', 'setup.py', 'sdist'])
   args = ['twine', 'upload']
-  print 'DEBUG: TRAVIS_PULL_REQUEST:{} TRAVIS_TAG:{}'.format(os.environ.get('TRAVIS_PULL_REQUEST', False), os.environ.get('TRAVIS_TAG', False))
-  if not os.environ.get('TRAVIS_PULL_REQUEST', False) and os.environ.get('TRAVIS_TAG', False):
+  
+  travis_pull_request = os.environ.get('TRAVIS_PULL_REQUEST', False) == 'true'
+  travis_tag = os.environ.get('TRAVIS_TAG', False)
+  
+  print 'DEBUG: TRAVIS_PULL_REQUEST:{} TRAVIS_TAG:{}'.format(travis_pull_request, travis_tag)
+  
+  if not pull_request and travis_tag:
     args.append('--repository-url')
     args.append('https://upload.pypi.org/legacy/')
   else:
