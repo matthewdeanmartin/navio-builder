@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import subprocess, re
+import subprocess, re, os
 from navio.builder import task
 
 @task()
@@ -85,7 +85,19 @@ def release(ver = None):
   push()
 
 @task(test)
-def push_to_pypi():
-  pass
+def pypi():
+  subprocess.call(['python', 'setup.py', 'sdist'])
+  args = ['twine', 'upload']
+  if not os.environe.get('TRAVIS_PULL_REQUEST', False) and os.environ.get('TRAVIS_TAG', False):
+    args.append('--repository-url')
+    args.append('https://upload.pypi.org/legacy/')
+  else:
+    args.append('--skip-existing')
+    args.append('--repository-url')
+    args.append('https://test.pypi.org/legacy/')
+
+  args.append('dist/navio-builder-*')
+  if subprocess.call(args):
+    raise Exception('Error. Check logs above.')
 
 __DEFAULT__ = test
