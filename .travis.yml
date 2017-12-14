@@ -14,5 +14,13 @@ env:
 before_install:
   - pip install twine
 
-script:
-  - "./nb-local pypi"
+stages:
+  - test
+  - delpoy
+
+jobs:
+  include:
+    - script: ./nb-local test
+    - stage: deploy
+      python: 3.6
+      script: ./nb-local pypi

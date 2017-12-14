@@ -92,8 +92,6 @@ def pypi():
   travis_pull_request = os.environ.get('TRAVIS_PULL_REQUEST', False) == 'true'
   travis_tag = os.environ.get('TRAVIS_TAG', False)
   
-  print 'DEBUG: TRAVIS_PULL_REQUEST:{} TRAVIS_TAG:{}'.format(travis_pull_request, travis_tag)
-  
   if not travis_pull_request and travis_tag:
     args.append('--repository-url')
     args.append('https://upload.pypi.org/legacy/')
