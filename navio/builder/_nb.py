@@ -13,6 +13,7 @@ import imp
 import sys
 import time
 from navio.builder import __version__
+import sh
 
 _CREDIT_LINE = "Powered by nb %s - A Lightweight Python Build Tool." % __version__
 _LOGGING_FORMAT = "[ %(name)s - %(message)s ]"
@@ -305,7 +306,6 @@ def sh_out(line):
 def sh_err(line):
   sys.stderr.write(line)
 
-import sh
 nsh = None
 if os.environ.get('TRAVIS', 'false') == 'true':
   nsh = sh(_out=sys.stdout, _err=sys.stderr)
