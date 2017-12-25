@@ -8,6 +8,7 @@ setup(
     url=navio.builder.__website__,
     packages=["navio", "navio.builder"],
     entry_points={'console_scripts': ['nb=navio.builder:main']},
+    install_requires=['sh'],
     license="MIT License",
     classifiers=[
         'Development Status :: 4 - Beta',

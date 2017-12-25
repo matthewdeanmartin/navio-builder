@@ -297,3 +297,19 @@ def _get_logger(module):
 
 def main():
     build(sys.argv[1:])
+
+# Navio shell overriden call
+def sh_out(line):
+  sys.stdout.write(line)
+
+def sh_err(line):
+  sys.stderr.write(line)
+
+import sh
+nsh = None
+if os.environ.get('TRAVIS', 'false') == 'true':
+  nsh = sh(_out=sys.stdout, _err=sys.stderr)
+else:
+  nsh = sh(_out=sys.stdout, _err=sys.stderr, _tty_in=True)
+  
+

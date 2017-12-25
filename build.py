@@ -71,11 +71,6 @@ def push():
   subprocess.call(['git', 'push', '--verbose'])
   subprocess.call(['git', 'push', '--tags', '--verbose'])
 
-@task(generate_rst)
-def upload():
-  subprocess.call(['ssh-add', '~/.ssh/id_rsa'])
-  subprocess.call(['python', 'setup.py', 'sdist', 'bdist_wininst', 'upload'])
-
 @task()
 def release(ver = None):
   check_uncommited()
