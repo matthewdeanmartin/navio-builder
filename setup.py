@@ -1,5 +1,5 @@
 from setuptools import setup
-import navio.builder
+import navio.meta_builder
 setup(
     name="navio-builder",
     version=navio.meta_builder.__version__,
