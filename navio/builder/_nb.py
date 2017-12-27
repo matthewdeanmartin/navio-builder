@@ -13,7 +13,7 @@ import imp
 import sys
 import time
 import sh
-from navio.builder import __version__
+from navio.meta_builder import __version__
 
 _CREDIT_LINE = "Powered by nb %s - A Lightweight Python Build Tool." % __version__
 _LOGGING_FORMAT = "[ %(name)s - %(message)s ]"
