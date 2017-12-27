@@ -2,10 +2,10 @@ from setuptools import setup
 import navio.builder
 setup(
     name="navio-builder",
-    version=navio.builder.__version__,
+    version=navio.meta_builder.__version__,
     author="Peter Salnikov",
     author_email="peter@navio.tech",
-    url=navio.builder.__website__,
+    url=navio.meta_builder.__website__,
     packages=["navio", "navio.builder"],
     entry_points={'console_scripts': ['nb=navio.builder:main']},
     install_requires=['sh'],
