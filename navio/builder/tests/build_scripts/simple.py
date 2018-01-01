@@ -9,11 +9,13 @@ def clean():
 
     print("clean")
 
+
 @task()
 def html():
     """Generate HTML."""
-    
+
     print("html")
+
 
 @task()
 def images():
@@ -21,18 +23,21 @@ def images():
 
     print("images")
 
+
 @task()
 def android():
     """Package Android app."""
 
     print("android")
 
+
 @task()
 def ios():
     """Package iOS app."""
 
     print("ios")
-    
+
+
 def some_utility_method():
     """Some utility method."""
 
