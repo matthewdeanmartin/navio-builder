@@ -15,6 +15,7 @@ def test(*args):
   """
   Run unit tests.
   """
+  subprocess.call(['pep8', 'navio/'])
   subprocess.call(["py.test"] + list(args))
 
 @task()
