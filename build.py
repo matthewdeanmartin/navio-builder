@@ -72,7 +72,7 @@ def push():
   subprocess.call(['git', 'push', '--verbose'])
   subprocess.call(['git', 'push', '--tags', '--verbose'])
 
-@task()
+@task(test)
 def release(ver = None):
   check_uncommited()
   update_version(ver)
