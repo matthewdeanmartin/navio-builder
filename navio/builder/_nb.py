@@ -13,6 +13,7 @@ import imp
 import sys
 import time
 import sh
+import json
 from navio.meta_builder import __version__
 
 _CREDIT_LINE = ("Powered by nb %s "
@@ -344,8 +345,17 @@ def _get_logger(module):
 def main():
     build(sys.argv[1:])
 
-# Navio shell overriden call
+def json_serial(obj):
+    """JSON serializer for objects not serializable by default json code"""
 
+    if isinstance(obj, (datetime, date)):
+        return obj.isoformat()
+    raise TypeError("Type %s not serializable" % type(obj))
+
+def dump(obj):
+  print('DUMP: {}'.format(json.dumps(obj, indent=1, default=json_serial)))
+
+# Navio shell overriden call
 
 def sh_out(line):
     sys.stdout.write(line)
