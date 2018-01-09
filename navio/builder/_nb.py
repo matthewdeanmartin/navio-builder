@@ -359,3 +359,4 @@ if os.environ.get('TRAVIS', 'false') == 'true':
     nsh = sh(_out=sys.stdout, _err_to_out=True)
 else:
     nsh = sh(_out=sys.stdout, _err_to_out=True, _tty_in=True)
+    
