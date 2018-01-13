@@ -14,6 +14,7 @@ import sys
 import time
 import sh
 import json
+from datetime import datetime, date
 from navio.meta_builder import __version__
 
 _CREDIT_LINE = ("Powered by nb %s "
