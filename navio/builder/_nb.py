@@ -358,16 +358,18 @@ def dump(obj):
 
 # Navio shell overriden call
 
-def sh_out(line):
+def print_out(line):
     sys.stdout.write(line)
+    sys.stdout.flush()
 
 
-def sh_err(line):
+def print_err(line):
     sys.stderr.write(line)
+    sys.stderr.flush()
 
 nsh = None
+unbuffered_stdout = os.fdopen(sys.stdout.fileno(), 'w', 0)
 if os.environ.get('TRAVIS', 'false') == 'true':
-    nsh = sh(_out=sys.stdout, _err_to_out=True)
+    nsh = sh(_out=unbuffered_stdout, _err_to_out=True)
 else:
-    nsh = sh(_out=sys.stdout, _err_to_out=True, _tty_in=True)
-    
+    nsh = sh(_out=unbuffered_stdout, _err_to_out=True, _tty_in=True)
