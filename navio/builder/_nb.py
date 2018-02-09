@@ -346,6 +346,7 @@ def _get_logger(module):
 def main():
     build(sys.argv[1:])
 
+
 def json_serial(obj):
     """JSON serializer for objects not serializable by default json code"""
 
@@ -353,23 +354,25 @@ def json_serial(obj):
         return obj.isoformat()
     raise TypeError("Type %s not serializable" % type(obj))
 
+
 def dump(obj):
-  print('DUMP: {}'.format(json.dumps(obj, indent=1, default=json_serial)))
+    print('DUMP: {}'.format(json.dumps(obj, indent=1, default=json_serial)))
 
 # Navio shell overriden call
 
 def print_out(line):
     sys.stdout.write(line)
+    sys.stdout.write("\n")
     sys.stdout.flush()
 
 
 def print_err(line):
     sys.stderr.write(line)
+    sys.stderr.write("\n")
     sys.stderr.flush()
 
 nsh = None
-unbuffered_stdout = os.fdopen(sys.stdout.fileno(), 'w', 0)
 if os.environ.get('TRAVIS', 'false') == 'true':
-    nsh = sh(_out=unbuffered_stdout, _err_to_out=True)
+    nsh = sh(_out=sys.stdout, _err_to_out=True, _out_bufsize=0)
 else:
-    nsh = sh(_out=unbuffered_stdout, _err_to_out=True, _tty_in=True)
+    nsh = sh(_out=sys.stdout, _err_to_out=True, _out_bufsize=0, _tty_in=True)
