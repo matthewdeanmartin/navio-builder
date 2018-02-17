@@ -8,4 +8,4 @@ import pkgutil
 
 __path__ = pkgutil.extend_path(__path__, __name__)
 
-__all__ = ['task',  'main', 'nsh', 'sh', 'dump']
+__all__ = ['task',  'main', 'nsh', 'sh', 'dump', 'print_out', 'print_err']
