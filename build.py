@@ -9,13 +9,19 @@ def apidoc():
   Generate API documentation using epydoc.
   """
   subprocess.call(["epydoc","--config","epydoc.config"])
-    
+
 @task()
+def validate():
+  """
+  Run codestyle checks.
+  """  
+  subprocess.call(['pep8', 'navio/'])
+
+@task(validate)
 def test(*args):
   """
   Run unit tests.
-  """
-  subprocess.call(['pep8', 'navio/'])
+  """  
   subprocess.call(["py.test"] + list(args))
 
 @task()
