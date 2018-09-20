@@ -10,3 +10,4 @@ build
 *.egg-info
 .pypirc
 append_creds.sh
+.pytest_cache
