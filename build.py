@@ -106,5 +106,4 @@ def pypi():
   if subprocess.call(args):
     raise Exception('Error. Check logs above.')
 
-
 __DEFAULT__ = test
