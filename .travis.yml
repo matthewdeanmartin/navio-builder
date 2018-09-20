@@ -1,24 +1,20 @@
 language: python
 python:
-  - '2.7'
-  - '3.4'
-  - '3.5'
-  - '3.6'
-
+- '2.7'
+- '3.4'
+- '3.5'
+- '3.6'
 env:
   global:
-  - secure: P+iRGUn/nbt4fQLFDsFWPafoadYllGElj3+BjgSKLwypFd35TNIhaldyHSc6APK97KVwhYqxsfa0oPzDIJRKg3JA3O3gcLOiEPsR9m9jjf7is6czO16lBuBVfBiUZl01FXw+/2+gOsPjOsxn4U8JxdWuKEQO+qTLfu4A5x43M/z9nHDbgqgulRAaLqjD/ZfznrdSGodaEOhl9CJQrCkN6E4CCR/JT6EYzBsM6YUfk6TsONedAN1xfTeBvWUHCgqHkDg1ieLJUtpFlto351m9vbJi7+tCq/QRW8iv6s5BgrsD9W4w+VMhC/JQ5xlYeh18SDlCHnw/IMrEYWPVmUk7+6AZe7XAjlUObDDapXcBuiucCS8qMdxrPuYc5Vd4G0+mwZYSmvKnA6VfRCjASu0Z6Em+njsCcqY5EegT+FwQI3z49lUZ1YUpTdS/OzuPqCxpnevz4mcXGKl8UfA2k6/Pjix0cicALzVCy738E/nsXSQwPZHn9PQrTIuuYQ/lAkvmv088dM/f1t7mLnnCVmVXyx0H7B4NU4ooA35NjnO6JeHTzUBmwFPJWZXB54OFcjNDrCMZ3TLcNoeE6tNY1vYO2xvKo5139TsxOu/w6LtULfdMrgC7stz8GeaAZoaZFWXDJqifj+C7vDr8RnYcndWjXWp90N+XhisIIuPREdiqbPU=
-  - secure: dgXoaUh4/f3en/yl763/78/yWGS2TnZN8dcOb/1k9yIDs4yoCOqGs477uXAE41ZcmS1jk0omhpaTmShw7hPYiTqOgR6fhI+8fbNaO3XixLO7WDDrGQQdlYQZCcisEEbsLAmeWbyFgkhNM9x9UWtIbjx2i9oOLieFM5iVZyAX0R31aeOp+yeB6wiiCNl9Ow+n5XpecRQsVtTySbkRF07ZrknnBjSzm88CHtTXXyMuN7jMKz98MwBEKxcV1hn6ur/Eq8LV4WPqGpcjmQmfQ//MAMFFUefvO211likxOHj9Twbo9CJESJmrnpq49VAZREaRFVycH3DaN5nM8WlBI+WrPnQfqKDJXr13LXThHdDDLvn9lUeUNDZMPlZahUnBVavIKf7QBvHW909zYd5pzFnyWelLRMgHJQqwSAtTeI0DewJUsAIZUFMpRVO6EH+1hJeLhHmzbgGH7q17MOqxnZrgvmT/zIsyBHtL6VmcKhicpopBdWO60LHQKl7O3T7zKE7ooioGPt95ITwwEe9wAiXKMRlP2Qab8BQfh3YKUulT+hj6EFlVocw/aqFdq1gpcmfI/OQMjFXdzh9o+1gTEPi9dfIfjYyKlR9N2WbVrz9Dm3UZ+2wQIvS85OTkRxgOSlWHXwm4e94FZbDJalkKDddPi8XGjsUfotFZf2TCSaFGU64=
-
-install: 
-  - pip install --upgrade pip
-  - pip install --upgrade -r requirements-build.txt 
-
-script: 
-  - python ./nb-local test
-
+  - secure: mfXRItQOMbDw9VKtKW2/9qzRHuiiRhRfBMIbau4CiJgIYNlNTOlny7nild5L/z8INnZPz/2Sjvm2bOBhaWKCAFtqZfClPwhjpaGZ8C7vFOhwdd3pknG/Ppz9jRPd/7I7bPpYkRfo8PevpNlxMhgG3nVsd4uknSf1pPUHg9dwobJM1ujQoBquKbxav8j9ZDfnRoRISw7WPmK6VQyEJjwfM2t4cStYmJev7NcceHmuBxYQnab6+7YWNqavJsR4r64gGwQCvPsndxJi4w+dSWSXTKYcWI19HKmNcHnhVbqBLZfOPIscTMN3C0LBdhO0pV2LQcJBZesAA8iGVKuIWzjhpWF90RD/2fUaTrzANcKkftv+2I1utlsR6YfTy6qvfT3VqRYaYf/jE519Yod9iWaFzMGpydnOVJvkn2RRn01kTReNDOvLBipIgYdI9dCV+5NGhHapvPMyyanHFa2zr207RZLfZc6Aa6AMkF9zSyd/0ADCPuQX8CMifMesg1w0osGE3nL90mGlaL92KJWovG7IYHAU7+KJL1xV7X6dNqumoll5qXzNwwDbN4l2ueOGaNMFT/PGUs7DbXJp5yzFpy8xeq+E/CKv8i+IQEoVwvS/XiNp5EmAQkGGjk+tNo0eKgGcmOszpeKofpX2IRjF7SeiUHFetonmdEqprv0h1YJ4VMU=
+  - secure: cOEysBhwcpVob9wvwAKxnVfvlIYIKl9kzxMPhzKUYgzWfznjoPofARdXj9YLJEv6ykXAUA34PCXU73uZelPAcxh4as20mPAknaf98w76IqJcN/9FDzuIlHszFpde8JClR+u+HVdXnq26hPcA3Ld/XvyXvR4fNXD73ZYjO+txbhf5U/QcalNRyKBGDYcfItGs8zznV1L5NggyDihCrTVlpUtGlQ9KY6szg/wy1l7/OWRsKIDNqo4DbbAjGnVRtR9Ln0Racgck2sRzOn0ODPxincJWpDGmGhoZvx0l8IXUe8EKwSlxd3pkKwkjEFE9nUo0ZsKfWLEOXIwfluV0rsPRvMwDxHfVzOkELOcoCOXkoKuDSUyAPOgUz6V4Lr8hiy/YsWpLd/FYsTPlPVj0N934MYPmiJJdjrl0h9AvmMcZ9VWk0QMy6f9zsfM7CaH9sFs0f8STdYq3lg30HcByUt1NMj032zNdoItb7F3FdYZQqgGJwSJzpgE2WviUO5/FL6zWM/PssahWT0RlNbd1bn8v2fq3dhqFRN82JMlf+WHbOHkUufc7Mjfyj9/7yr/164LK//LbyBgGkz1eJT3Phqu2d7ZCXz6B3yCXG87gBJbDF7qi6Qj0n6nDFn3oVK9asjWs/UTuwTuqw1cdDrJjhan9brmPT2mOEVuCw9QKIs5nch0=
+install:
+- pip install --upgrade pip
+- pip install --upgrade -r requirements-build.txt
+script:
+- python ./nb-local test
 jobs:
   include:
-    - stage: deploy
-      python: 3.6
-      script: python ./nb-local pypi
+  - stage: deploy
+    python: 3.6
+    script: python ./nb-local pypi
