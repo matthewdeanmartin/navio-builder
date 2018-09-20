@@ -61,6 +61,15 @@ class TestParseArgs:
             _nb._create_parser().parse_args(["-f"])
 
 
+class TestImport:
+
+    def test_import(self):
+        import navio.builder
+        from navio.builder import nsh
+        from navio.builder import sh
+        from navio.builder import dump
+
+
 class TestBuildSimple:
 
     def test_get_tasks(self):
