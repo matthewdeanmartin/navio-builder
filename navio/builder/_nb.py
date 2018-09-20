@@ -20,7 +20,7 @@ from navio.meta_builder import __version__
 _CREDIT_LINE = ("Powered by nb %s "
                 "- A Lightweight Python Build Tool." % __version__)
 _LOGGING_FORMAT = "[ %(name)s - %(message)s ]"
-_TASK_PATTERN = re.compile("^([^\[]+)(\[([^\]]*)\])?$")
+_TASK_PATTERN = re.compile(r"^([^\[]+)(\[([^\]]*)\])?$")
 # "^([^\[]+)(\[([^\],=]*(,[^\],=]+)*(,[^\],=]+=[^\],=]+)*)\])?$"
 
 
