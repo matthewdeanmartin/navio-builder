@@ -3,8 +3,8 @@ import navio.meta_builder
 setup(
     name="navio-builder",
     version=navio.meta_builder.__version__,
-    author="Peter Salnikov",
-    author_email="peter@navio.tech",
+    author='Navio Online OpenSource projects',
+    author_email='oss@navio.online',
     url=navio.meta_builder.__website__,
     packages=["navio", "navio.builder"],
     entry_points={'console_scripts': ['nb=navio.builder:main']},
@@ -21,6 +21,6 @@ setup(
         'Topic :: Software Development :: Build Tools'
     ],
     keywords=['devops', 'build tool'],
-    description="Lightweight Python Build Tool.",
+    description="Lightweight Python Build Tool",
     long_description=open("README.rst").read()+"\n"+open("CHANGES.rst").read()
 )
