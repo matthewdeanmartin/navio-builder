@@ -373,6 +373,6 @@ def print_err(line):
 
 nsh = None
 if os.environ.get('TRAVIS', 'false') == 'true':
-    nsh = sh(_out=sys.stdout, _err_to_out=True, _out_bufsize=0)
+    nsh = sh(_out=sys.stdout, _err_to_out=True)
 else:
-    nsh = sh(_out=sys.stdout, _err_to_out=True, _out_bufsize=0, _tty_in=True)
+    nsh = sh(_out=sys.stdout, _err_to_out=True, _tty_in=True)
