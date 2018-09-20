@@ -45,13 +45,13 @@ Using pip
 
 .. code:: bash
 
-    $ pip install navio-builder
+   $ pip install navio-builder
 
 Using easy_install
 
 .. code:: bash
 
-    $ easy_install navio-builder
+   $ easy_install navio-builder
 
 Example
 -------
@@ -74,50 +74,50 @@ the dependency chains of all the dependent tasks.
 .. code:: python
 
 
-    #!/usr/bin/python
+   #!/usr/bin/python
 
-    import sys
-    from navio.builder import task
+   import sys
+   from navio.builder import task
 
-    @task()
-    def clean():
-        '''Clean build directory.'''
-        print 'Cleaning build directory...'
+   @task()
+   def clean():
+       '''Clean build directory.'''
+       print 'Cleaning build directory...'
 
-    @task(clean)
-    def html(target='.'):
-        '''Generate HTML.'''
-        print 'Generating HTML in directory "%s"' %  target
+   @task(clean)
+   def html(target='.'):
+       '''Generate HTML.'''
+       print 'Generating HTML in directory "%s"' %  target
 
-    @task(clean, ignore=True)
-    def images():
-        '''Prepare images.'''
-        print 'Preparing images...'
+   @task(clean, ignore=True)
+   def images():
+       '''Prepare images.'''
+       print 'Preparing images...'
 
-    @task(html,images)
-    def start_server(server='localhost', port = '80'):
-        '''Start the server'''
-        print 'Starting server at %s:%s' % (server, port)
+   @task(html,images)
+   def start_server(server='localhost', port = '80'):
+       '''Start the server'''
+       print 'Starting server at %s:%s' % (server, port)
 
-    @task(start_server) #Depends on task with all optional params
-    def stop_server():
-        print 'Stopping server....'
+   @task(start_server) #Depends on task with all optional params
+   def stop_server():
+       print 'Stopping server....'
 
-    @task()
-    def copy_file(src, dest):
-        print 'Copying from %s to %s' % (src, dest)
+   @task()
+   def copy_file(src, dest):
+       print 'Copying from %s to %s' % (src, dest)
 
-    @task()
-    def echo(*args,**kwargs):
-        print args
-        print kwargs
-        
-    # Default task (if specified) is run when no task is specified in the command line
-    # make sure you define the variable __DEFAULT__ after the task is defined
-    # A good convention is to define it at the end of the module
-    # __DEFAULT__ is an optional member
+   @task()
+   def echo(*args,**kwargs):
+       print args
+       print kwargs
+       
+   # Default task (if specified) is run when no task is specified in the command line
+   # make sure you define the variable __DEFAULT__ after the task is defined
+   # A good convention is to define it at the end of the module
+   # __DEFAULT__ is an optional member
 
-    __DEFAULT__=start_server
+   __DEFAULT__=start_server
 
 **Running navio-builder tasks**
 -------------------------------
@@ -127,32 +127,32 @@ descriptions are extracted from function docstrings.
 
 .. code:: bash
 
-    $ nb -h
-    usage: nb [-h] [-l] [-v] [-f file] [task [task ...]]
+   $ nb -h
+   usage: nb [-h] [-l] [-v] [-f file] [task [task ...]]
 
-    positional arguments:
-      task                  perform specified task and all its dependencies
+   positional arguments:
+     task                  perform specified task and all its dependencies
 
-    optional arguments:
-      -h, --help            show this help message and exit
-      -l, --list-tasks      List the tasks
-      -v, --version         Display the version information
-      -f file, --file file  Build file to read the tasks from. Default is
-                            'build.py'
+   optional arguments:
+     -h, --help            show this help message and exit
+     -l, --list-tasks      List the tasks
+     -v, --version         Display the version information
+     -f file, --file file  Build file to read the tasks from. Default is
+                           'build.py'
 
 .. code:: bash
 
-    $ nb -l
-    Tasks in build file ./build.py:
-      clean                       Clean build directory.
-      copy_file                   
-      echo                        
-      html                        Generate HTML.
-      images           [Ignored]  Prepare images.
-      start_server     [Default]  Start the server
-      stop_server                 
+   $ nb -l
+   Tasks in build file ./build.py:
+     clean                       Clean build directory.
+     copy_file                   
+     echo                        
+     html                        Generate HTML.
+     images           [Ignored]  Prepare images.
+     start_server     [Default]  Start the server
+     stop_server                 
 
-    Powered by navio-builder - A Lightweight Python Build Tool.
+   Powered by navio-builder - A Lightweight Python Build Tool.
 
 navio-builder takes care of dependencies between tasks. In the following
 case start_server depends on clean, html and image generation (image
@@ -160,17 +160,17 @@ task is ignored).
 
 .. code:: bash
 
-    $ nb #Runs the default task start_server. It does exactly what "nb start_server" would do.
-    [ example.py - Starting task "clean" ]
-    Cleaning build directory...
-    [ example.py - Completed task "clean" ]
-    [ example.py - Starting task "html" ]
-    Generating HTML in directory "."
-    [ example.py - Completed task "html" ]
-    [ example.py - Ignoring task "images" ]
-    [ example.py - Starting task "start_server" ]
-    Starting server at localhost:80
-    [ example.py - Completed task "start_server" ]
+   $ nb #Runs the default task start_server. It does exactly what "nb start_server" would do.
+   [ example.py - Starting task "clean" ]
+   Cleaning build directory...
+   [ example.py - Completed task "clean" ]
+   [ example.py - Starting task "html" ]
+   Generating HTML in directory "."
+   [ example.py - Completed task "html" ]
+   [ example.py - Ignoring task "images" ]
+   [ example.py - Starting task "start_server" ]
+   Starting server at localhost:80
+   [ example.py - Completed task "start_server" ]
 
 The first few characters of the task name is enough to execute the task,
 as long as the partial name is unambigious. You can specify multiple
@@ -179,16 +179,16 @@ care of.
 
 .. code:: bash
 
-    $ nb cle ht cl
-    [ example.py - Starting task "clean" ]
-    Cleaning build directory...
-    [ example.py - Completed task "clean" ]
-    [ example.py - Starting task "html" ]
-    Generating HTML in directory "."
-    [ example.py - Completed task "html" ]
-    [ example.py - Starting task "clean" ]
-    Cleaning build directory...
-    [ example.py - Completed task "clean" ]
+   $ nb cle ht cl
+   [ example.py - Starting task "clean" ]
+   Cleaning build directory...
+   [ example.py - Completed task "clean" ]
+   [ example.py - Starting task "html" ]
+   Generating HTML in directory "."
+   [ example.py - Completed task "html" ]
+   [ example.py - Starting task "clean" ]
+   Cleaning build directory...
+   [ example.py - Completed task "clean" ]
 
 The ‘html’ task dependency ‘clean’ is run only once. But clean can be
 explicitly run again later.
@@ -197,35 +197,35 @@ nb tasks can accept parameters from commandline.
 
 .. code:: bash
 
-    $ nb "copy_file[/path/to/foo, path_to_bar]"
-    [ example.py - Starting task "clean" ]
-    Cleaning build directory...
-    [ example.py - Completed task "clean" ]
-    [ example.py - Starting task "copy_file" ]
-    Copying from /path/to/foo to path_to_bar
-    [ example.py - Completed task "copy_file" ]
+   $ nb "copy_file[/path/to/foo, path_to_bar]"
+   [ example.py - Starting task "clean" ]
+   Cleaning build directory...
+   [ example.py - Completed task "clean" ]
+   [ example.py - Starting task "copy_file" ]
+   Copying from /path/to/foo to path_to_bar
+   [ example.py - Completed task "copy_file" ]
 
 nb can also accept keyword arguments.
 
 .. code:: bash
 
-    $ nb start[port=8888]
-    [ example.py - Starting task "clean" ]
-    Cleaning build directory...
-    [ example.py - Completed task "clean" ]
-    [ example.py - Starting task "html" ]
-    Generating HTML in directory "."
-    [ example.py - Completed task "html" ]
-    [ example.py - Ignoring task "images" ]
-    [ example.py - Starting task "start_server" ]
-    Starting server at localhost:8888
-    [ example.py - Completed task "start_server" ]
-        
-    $ nb echo[hello,world,foo=bar,blah=123]
-    [ example.py - Starting task "echo" ]
-    ('hello', 'world')
-    {'blah': '123', 'foo': 'bar'}
-    [ example.py - Completed task "echo" ]
+   $ nb start[port=8888]
+   [ example.py - Starting task "clean" ]
+   Cleaning build directory...
+   [ example.py - Completed task "clean" ]
+   [ example.py - Starting task "html" ]
+   Generating HTML in directory "."
+   [ example.py - Completed task "html" ]
+   [ example.py - Ignoring task "images" ]
+   [ example.py - Starting task "start_server" ]
+   Starting server at localhost:8888
+   [ example.py - Completed task "start_server" ]
+       
+   $ nb echo[hello,world,foo=bar,blah=123]
+   [ example.py - Starting task "echo" ]
+   ('hello', 'world')
+   {'blah': '123', 'foo': 'bar'}
+   [ example.py - Completed task "echo" ]
 
 **Organizing build scripts**
 ----------------------------
@@ -235,8 +235,8 @@ into your main build file.
 
 .. code:: python
 
-    from deploy_tasks import *
-    from test_tasks import functional_tests, report_coverage
+   from deploy_tasks import *
+   from test_tasks import functional_tests, report_coverage
 
 Contributors/Contributing
 -------------------------
@@ -254,7 +254,7 @@ https://github.com/naviotech/navio-builder. You will need
 
 .. code:: bash
 
-    $ ./b t
+   $ ./b t
 
 It will be great if you can raise a `pull
 request <https://help.github.com/articles/using-pull-requests>`__ once

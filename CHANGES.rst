@@ -6,7 +6,7 @@ Changes
 
 -  Add task running time to output
 
-.. section-1:
+.. _section-1:
 
 0.1.0 - 11/12/2017
 ------------------
