@@ -1,4 +1,4 @@
-__version__ = "0.1.31"
+__version__ = "0.1.32"
 __license__ = "MIT License"
 __website__ = "https://oss.navio.tech/navio-builder/"
 __download_url__ = ('https://github.com/naviotech/navio-builder/archive/'
