@@ -15,7 +15,7 @@ def validate():
   """
   Run codestyle checks.
   """  
-  subprocess.call(['pep8', 'navio/'])
+  subprocess.call(['pycodestyle', 'navio/', '--max-line-length=110'])
 
 @task(validate)
 def test(*args):
@@ -42,7 +42,7 @@ def update_version(ver = None):
     file_str = f.read()
 
   if not ver:
-    regexp = re.compile('__version__\s*\=\s*\"([\d\w\.\-\_]+)\"\s*')
+    regexp = re.compile(r'__version__\s*\=\s*\"([\d\w\.\-\_]+)\"\s*')
     m = regexp.search(file_str)
     if m:
       ver = m.group(1)
@@ -51,8 +51,8 @@ def update_version(ver = None):
   ver = '{}.{}'.format(ver[:ver.rfind('.')], minor_ver+1)
 
   file_str = re.sub(
-      '__version__\s*\=\s*\"([\d\w\.\-\_]+)\"\s*',
-      '__version__ = "{}"\n'.format(ver),
+      r'__version__\s*\=\s*\"([\d\w\.\-\_]+)\"\s*',
+      r'__version__ = "{}"\n'.format(ver),
       file_str)
 
   with open('navio/meta_builder.py', 'w') as f:
@@ -64,7 +64,7 @@ def update_version(ver = None):
 def create_tag():
   with open('navio/meta_builder.py', 'r') as f:
     file_str = f.read()
-  regexp = re.compile('__version__\s*\=\s*\"([\d\w\.\-\_]+)\"\s*')
+  regexp = re.compile(r'__version__\s*\=\s*\"([\d\w\.\-\_]+)\"\s*')
   m = regexp.search(file_str)
   if m:
     ver = m.group(1)

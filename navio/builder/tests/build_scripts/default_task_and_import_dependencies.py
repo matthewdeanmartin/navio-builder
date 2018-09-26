@@ -17,4 +17,5 @@ def local_task():
 def task_with_imported_dependencies():
     tasks_run.append('task_with_imported_dependencies')
 
+
 __DEFAULT__ = task_with_imported_dependencies

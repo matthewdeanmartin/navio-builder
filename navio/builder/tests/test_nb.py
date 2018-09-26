@@ -176,10 +176,10 @@ class TestOptions:
         tasks = _nb._get_tasks(module)
         for task in tasks:
             if task.ignored:
-                assert re.findall('%s\s+%s\s+%s' %
-                                  (task.name, "\[Ignored\]", task.doc), stdout)
+                assert re.findall(r'%s\s+%s\s+%s' %
+                                  (task.name, r"\[Ignored\]", task.doc), stdout)
             else:
-                assert re.findall('%s\s+%s' % (task.name, task.doc), stdout)
+                assert re.findall(r'%s\s+%s' % (task.name, task.doc), stdout)
 
 
 class TestRuntimeError:
@@ -336,3 +336,11 @@ class TesttaskArguments:
         with pytest.raises(TypeError) as exc:
             build(self._mod, ['copy[bar123=2]'])
         assert "got an unexpected keyword argument 'bar123'" in str(exc.value)
+
+
+class TestPushd:
+
+    def test_pushd(self):
+        from navio.builder import pushd
+        with pushd('.'):
+            pass

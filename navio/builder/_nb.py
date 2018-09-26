@@ -3,11 +3,13 @@ Lightweight Python Build Tool
 
 """
 
+from os import path
+from os import chdir, getcwd
+from os.path import realpath
 import inspect
 import argparse
 import logging
 import os
-from os import path
 import re
 import imp
 import sys
@@ -206,7 +208,7 @@ def _run(
                 startTime = int(round(time.time() * 1000))
                 task(*(args or []), **(kwargs or {}))
                 stopTime = int(round(time.time() * 1000))
-            except:
+            except Exception:
                 stopTime = int(round(time.time() * 1000))
                 logger.critical("Error in task \"%s\". Time: %s sec" % (
                     task.name, (float(stopTime)-startTime)/1000))
@@ -358,8 +360,6 @@ def json_serial(obj):
 def dump(obj):
     print('DUMP: {}'.format(json.dumps(obj, indent=1, default=json_serial)))
 
-# Navio shell overriden call
-
 
 def print_out(line):
     sys.stdout.write(line)
@@ -372,6 +372,38 @@ def print_err(line):
     sys.stderr.write("\n")
     sys.stderr.flush()
 
+
+class PushdContext:
+    cwd = None
+    original_dir = None
+
+    def __init__(self, dirname):
+        self.cwd = realpath(dirname)
+
+    def __enter__(self):
+        self.original_dir = getcwd()
+        chdir(self.cwd)
+        return self
+
+    def __exit__(self, type, value, tb):
+        chdir(self.original_dir)
+
+
+def pushd(dirname):
+    return PushdContext(dirname)
+
+
+# @contextlib.contextmanager
+# def pushd(path):
+#     starting_directory = os.getcwd()
+#     try:
+#         os.chdir(path)
+#         yield
+#     finally:
+#         os.chdir(starting_directory)
+
+
+# Navio shell overriden call
 nsh = None
 if os.environ.get('TRAVIS', 'false') == 'true':
     nsh = sh(_out=sys.stdout, _err_to_out=True)
