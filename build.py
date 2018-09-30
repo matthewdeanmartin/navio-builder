@@ -44,7 +44,7 @@ def test(*args):
 
 @task()
 def check_uncommited():
-    result = sh.git('status', '--porcelain')
+    result = sh.git('status', '--porcelain', '--untracked-files=no')
     if result:
         raise Exception('There are uncommited files')
 
