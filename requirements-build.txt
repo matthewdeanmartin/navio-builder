@@ -1,4 +1,4 @@
 pytest
 twine
-sh
 pycodestyle
+sh

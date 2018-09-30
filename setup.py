@@ -1,5 +1,7 @@
-from setuptools import setup
+import sys
 import navio.meta_builder
+from setuptools import setup
+
 setup(
     name="navio-builder",
     version=navio.meta_builder.__version__,
@@ -8,8 +10,9 @@ setup(
     url=navio.meta_builder.__website__,
     packages=["navio", "navio.builder"],
     entry_points={'console_scripts': ['nb=navio.builder:main']},
+    setup_requires=['pytest-runner'],
+    tests_require=['pytest', 'sh'],
     install_requires=['sh'],
-    tests_require=['sh'],
     license="MIT License",
     classifiers=[
         'Development Status :: 4 - Beta',
@@ -23,5 +26,5 @@ setup(
     ],
     keywords=['devops', 'build tool'],
     description="Lightweight Python Build Tool",
-    long_description=open("README.rst").read()+"\n"+open("CHANGES.rst").read()
+    long_description=open("README.rst").read()+"\n"+open("CHANGES.rst").read(),
 )

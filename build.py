@@ -39,7 +39,7 @@ def test(*args):
     """
     Run unit tests.
     """
-    nsh.pytest(args)
+    nsh.python('setup.py', 'test')
 
 
 @task()
