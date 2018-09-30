@@ -9,6 +9,7 @@ setup(
     packages=["navio", "navio.builder"],
     entry_points={'console_scripts': ['nb=navio.builder:main']},
     install_requires=['sh'],
+    tests_require=['sh'],
     license="MIT License",
     classifiers=[
         'Development Status :: 4 - Beta',
