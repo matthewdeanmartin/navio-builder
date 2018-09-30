@@ -22,6 +22,7 @@ def validate():
     """
     Run codestyle checks.
     """
+    nsh.travis('lint')
     nsh.pycodestyle('build.py', 'setup.py', '--max-line-length=110')
     nsh.pycodestyle('navio/', '--max-line-length=110')
 
