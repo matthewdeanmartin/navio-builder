@@ -22,7 +22,7 @@ def validate():
     """
     Run codestyle checks.
     """
-    if os.environ.get('TRAVIS','false') is not 'true':
+    if os.environ.get('TRAVIS', 'false') == 'false':
         nsh.travis('lint')
     nsh.pycodestyle('build.py', 'setup.py', '--max-line-length=110')
     nsh.pycodestyle('navio/', '--max-line-length=110')
