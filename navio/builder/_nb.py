@@ -361,6 +361,10 @@ def dump(obj):
     print('DUMP: {}'.format(json.dumps(obj, indent=1, default=json_serial)))
 
 
+def dumps(obj):
+    return json.dumps(obj, indent=1, default=json_serial)
+
+
 def print_out(line):
     sys.stdout.write(line)
     sys.stdout.write("\n")

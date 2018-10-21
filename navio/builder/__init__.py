@@ -11,6 +11,6 @@ __path__ = pkgutil.extend_path(__path__, __name__)
 __all__ = [
   'task',  'main',
   'nsh', 'sh',
-  'dump', 'pushd',
+  'dump', 'dumps', 'pushd',
   'print_out', 'print_err'
 ]
