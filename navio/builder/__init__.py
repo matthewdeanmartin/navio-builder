@@ -2,7 +2,9 @@
 Lightweight Python Build Tool
 '''
 
-from ._nb import task, main, nsh, dump, pushd
+from ._nb import task
+from ._nb import main, nsh
+from ._nb import dump, pushd, zipdir
 import sh
 import pkgutil
 
