@@ -16,6 +16,7 @@ import sys
 import time
 import sh
 import json
+import zipfile
 from datetime import datetime, date
 from navio.meta_builder import __version__
 
@@ -375,6 +376,14 @@ def print_err(line):
     sys.stderr.write(line)
     sys.stderr.write("\n")
     sys.stderr.flush()
+
+
+def zipdir(dir_path, zip_file):
+    zipf = zipfile.ZipFile(zip_file, 'w', zipfile.ZIP_DEFLATED)
+    for root, dirs, files in os.walk(dir_path):
+        for file in files:
+            zipf.write(os.path.join(root, file))
+    zipf.close()
 
 
 class PushdContext:
