@@ -378,11 +378,18 @@ def print_err(line):
     sys.stderr.flush()
 
 
-def zipdir(dir_path, zip_file):
+def zipdir(zip_file, *paths):
+    import zipfile
     zipf = zipfile.ZipFile(zip_file, 'w', zipfile.ZIP_DEFLATED)
-    for root, dirs, files in os.walk(dir_path):
-        for file in files:
-            zipf.write(os.path.join(root, file))
+    for i, path in enumerate(paths):
+        if os.path.isfile(path):
+            print('Adding file: {}'.format(path))
+            zipf.write(path)
+        elif os.path.isdir(path):
+            for root, dirs, files in os.walk(path):
+                for file in files:
+                    zipf.write(os.path.join(root, file))
+                    print('Adding file: {}'.format(os.path.join(root, file)))
     zipf.close()
 
 
