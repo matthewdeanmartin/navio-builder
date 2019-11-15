@@ -413,6 +413,11 @@ def pushd(dirname):
     return PushdContext(dirname)
 
 
+def add_env(env):
+    new_env = os.environ.copy()
+    new_env.update(env)
+    return new_env
+
 # @contextlib.contextmanager
 # def pushd(path):
 #     starting_directory = os.getcwd()
