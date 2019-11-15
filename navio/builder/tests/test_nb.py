@@ -135,13 +135,13 @@ class TestDecorationValidation:
 
 @contextlib.contextmanager
 def mock_stdout():
-    oldout, olderr = sys.stdout,  sys.stderr
+    oldout, olderr = sys.stdout, sys.stderr
     try:
-        out = [SOut(),  SOut()]
+        out = [SOut(), SOut()]
         sys.stdout, sys.stderr = out
         yield out
     finally:
-        sys.stdout, sys.stderr = oldout,  olderr
+        sys.stdout, sys.stderr = oldout, olderr
         out[0] = out[0].getvalue()
         out[1] = out[1].getvalue()
 
@@ -304,11 +304,11 @@ class TesttaskArguments:
 
     def test_passing_varargs_and_keyword_args(self):
         assert (
-          [
-            'echo[1,2,3,some_str,111=333,bar=123.3,foo=xyz]'] ==
-          build(self._mod,
+            ['echo[1,2,3,some_str,111=333,bar=123.3,foo=xyz]'] ==
+            build(
+                self._mod,
                 ['echo[1,2,3,some_str,111=333,foo=xyz,bar=123.3]']
-                ).tasks_run)
+            ).tasks_run)
 
     def test_validate_keyword_arguments_always_after_args(self):
         with pytest.raises(Exception) as exc:

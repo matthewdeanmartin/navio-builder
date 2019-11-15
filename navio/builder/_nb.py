@@ -66,7 +66,7 @@ def build(args):
         if not _run_default_task(module):
             parser.print_help()
             print("\n")
-            print_tasks(module,  args.file)
+            print_tasks(module, args.file)
     else:
         _run_from_task_names(module, args.tasks)
 
@@ -77,7 +77,7 @@ def print_tasks(module, file):
 
     # Build task_list to describe the tasks.
     task_list = "Tasks in build file %s:" % file
-    name_width = _get_max_name_length(module)+4
+    name_width = _get_max_name_length(module) + 4
     task_help_format = "\n  {0:<%s} {1: ^10} {2}" % name_width
     default = _get_default_task(module)
     for task in sorted(tasks, key=lambda task: task.name):
@@ -92,7 +92,7 @@ def print_tasks(module, file):
                                              ('[{}]'.format(joined_attributes))
                                              if attributes else '',
                                              task.doc)
-    print(task_list + "\n\n"+_CREDIT_LINE)
+    print(task_list + "\n\n" + _CREDIT_LINE)
 
 
 def _get_default_task(module):
@@ -212,12 +212,12 @@ def _run(
             except Exception:
                 stopTime = int(round(time.time() * 1000))
                 logger.critical("Error in task \"%s\". Time: %s sec" % (
-                    task.name, (float(stopTime)-startTime)/1000))
+                    task.name, (float(stopTime) - startTime) / 1000))
                 logger.critical("Aborting build")
                 raise
 
             logger.info("Completed task \"%s\". Time: %s sec" %
-                        (task.name, (float(stopTime)-startTime)/1000))
+                        (task.name, (float(stopTime) - startTime) / 1000))
 
         completed_tasks.add(task)
 
