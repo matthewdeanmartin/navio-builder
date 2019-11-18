@@ -26,5 +26,5 @@ setup(
     ],
     keywords=['devops', 'build tool'],
     description="Lightweight Python Build Tool",
-    long_description=open("README.rst").read() + "\n" + open("CHANGES.rst").read(),
+    long_description="{}{}".format(open("README.rst").read(), open("CHANGES.rst").read()),
 )
