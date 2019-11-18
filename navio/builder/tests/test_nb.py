@@ -344,3 +344,10 @@ class TestPushd:
         from navio.builder import pushd
         with pushd('.'):
             pass
+
+
+class TestEncodings:
+
+    def test_encoding(self):
+        import io
+        io.open("README.rst", 'rt', encoding='latin1').read()
