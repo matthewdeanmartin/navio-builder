@@ -113,7 +113,7 @@ def release(ver=None):
     push()
 
 
-@task(test)
+@task()
 def pypi():
     args = ['upload']
 
