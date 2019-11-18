@@ -1,6 +1,7 @@
 import sys
 import navio.meta_builder
 from setuptools import setup
+import io
 
 setup(
     name="navio-builder",
@@ -27,7 +28,7 @@ setup(
     keywords=['devops', 'build tool'],
     description="Lightweight Python Build Tool",
     long_description="{}\n{}".format(
-        open("README.rst", 'rt', encoding='latin1').read(),
-        open("CHANGES.rst", 'rt', encoding='latin1').read()
+        io.open("README.rst", 'rt', encoding='latin1').read(),
+        io.open("CHANGES.rst", 'rt', encoding='latin1').read()
     )
 )
