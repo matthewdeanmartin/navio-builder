@@ -1,7 +1,5 @@
-import sys
-import navio.meta_builder
 from setuptools import setup
-import io
+import navio.meta_builder
 
 setup(
     name="navio-builder",
