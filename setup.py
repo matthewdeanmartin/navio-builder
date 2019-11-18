@@ -26,9 +26,9 @@ setup(
         'Topic :: Software Development :: Build Tools'
     ],
     keywords=['devops', 'build tool'],
-    description="Lightweight Python Build Tool",
     long_description="{}\n{}".format(
         open("README.rst", 'rb').read().decode('utf-8'),
         open("CHANGES.rst", 'rb').read().decode('utf-8')
-    )
+    ),
+    description="Lightweight Python Build Tool",
 )
