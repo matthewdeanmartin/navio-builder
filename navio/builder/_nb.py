@@ -429,8 +429,4 @@ def add_env(env):
 
 
 # Navio shell overriden call
-nsh = None
-if os.environ.get('TRAVIS', 'false') == 'true':
-    nsh = sh(_out=sys.stdout, _err_to_out=True)
-else:
-    nsh = sh(_out=sys.stdout, _err_to_out=True, _tty_in=True)
+nsh = sh(_out=sys.stdout, _err_to_out=True)
