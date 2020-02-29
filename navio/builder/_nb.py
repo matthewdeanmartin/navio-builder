@@ -213,7 +213,7 @@ def _run(
                 stopTime = int(round(time.time() * 1000))
                 logger.critical("Error in task \"%s\". Time: %s sec" % (
                     task.name, (float(stopTime) - startTime) / 1000))
-                logger.critical("Aborting build")
+                logger.critical("Aborting build for %s" % os.path.abspath(module.__file__))
                 raise
 
             logger.info("Completed task \"%s\". Time: %s sec" %
