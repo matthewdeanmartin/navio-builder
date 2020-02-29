@@ -202,7 +202,7 @@ def _run(
 
         else:
 
-            logger.info("Starting task \"%s\"" % task.name)
+            logger.info("Starting task \"%s%s\"" % (task.name, str(args or [])))
 
             try:
                 # Run task.
