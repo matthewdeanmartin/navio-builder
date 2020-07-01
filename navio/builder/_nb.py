@@ -413,9 +413,10 @@ def pushd(dirname):
     return PushdContext(dirname)
 
 
-def add_env(env):
+def add_env(*envs):
     new_env = os.environ.copy()
-    new_env.update(env)
+    for env in envs:
+        new_env.update(env)
     return new_env
 
 # @contextlib.contextmanager
