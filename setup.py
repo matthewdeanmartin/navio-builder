@@ -8,6 +8,7 @@ setup(
     author_email='oss@navio.online',
     url=navio.meta_builder.__website__,
     packages=["navio", "navio.builder"],
+    py_modules=["sh_it"],
     entry_points={'console_scripts': ['nb=navio.builder:main']},
     setup_requires=['pytest-runner'],
     tests_require=['pytest', 'sh'],
