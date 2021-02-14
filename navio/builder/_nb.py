@@ -14,7 +14,10 @@ import re
 import imp
 import sys
 import time
-import sh
+try:
+    import sh
+except ModuleNotFoundError:
+    import sh_it as sh
 import json
 import zipfile
 from datetime import datetime, date
@@ -430,4 +433,7 @@ def add_env(*envs):
 
 
 # Navio shell overriden call
-nsh = sh(_out=sys.stdout, _err_to_out=True)
+try:
+    nsh = sh(_out=sys.stdout, _err_to_out=True)
+except NameError:
+    pass

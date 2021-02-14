@@ -1,6 +1,10 @@
 #!/usr/bin/python
 
-import sh
+try:
+    import sh
+except ModuleNotFoundError:
+    import sh_it as sh
+
 import re
 import os
 import sys
