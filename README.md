@@ -1,5 +1,18 @@
 [![Build Status](https://travis-ci.org/naviotech/navio-builder.png?branch=master)](https://travis-ci.org/naviotech/navio-builder)
 
+Why I forked Peter Salnikov's fork and what will happen here?
+==============================================
+I'm making the library OS neutral again and vendorizing my patched version was creating management problems. 
+
+I'll make best efforts to keep `navio-builder-win` up to date with `navio-builder` because that is currently
+the best and best maintained fork of `microbuild`.
+
+The convenience import of `sh` means Windows users can't import `navio`. The `sh` maintainers as a design goal
+want that library to blow up if imported on Windows, so I can't fix the `sh` library.
+
+This fork will allow you to use `sh` as a convenience import, but I don't recommend it. Import `sh` directly
+and not via `navio`
+
 Why I did this fork and what will happen here?
 ==============================================
 

@@ -1,5 +1,9 @@
 Changes 
 =======
+0.1.52 - 20/2/2017 
+------------------
+* Restore windows support
+
 0.1.16 - 14/12/2017
 ------------------
 
@@ -10,3 +14,4 @@ Changes
 
 * Initial release. Fork from pynt.
 * Rename done to modules
+

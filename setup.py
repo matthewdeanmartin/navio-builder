@@ -2,10 +2,10 @@ from setuptools import setup
 import navio.meta_builder
 
 setup(
-    name="navio-builder",
+    name="navio-builder-win",
     version=navio.meta_builder.__version__,
-    author='Navio Online OpenSource projects',
-    author_email='oss@navio.online',
+    author='Matthew Martin',
+    author_email='matthewdeanmartin@gmail.com',
     url=navio.meta_builder.__website__,
     packages=["navio", "navio.builder"],
     py_modules=["sh_it"],
@@ -25,7 +25,7 @@ setup(
         'Topic :: Software Development :: Build Tools'
     ],
     keywords=['devops', 'build tool'],
-    description="Lightweight Python Build Tool",
+    description="navio-builder, but doesn't import sh and works on windows.",
     long_description="{}\n{}".format(
         open("README.md", 'rb').read().decode('utf-8'),
         open("CHANGES.md", 'rb').read().decode('utf-8')
