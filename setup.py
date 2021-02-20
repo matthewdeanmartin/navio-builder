@@ -4,9 +4,11 @@ import navio.meta_builder
 setup(
     name="navio-builder-win",
     version=navio.meta_builder.__version__,
-    author='Matthew Martin',
+
+    author='Matthew Martin', # but also others, see github history
     author_email='matthewdeanmartin@gmail.com',
-    url=navio.meta_builder.__website__,
+    url="https://github.com/matthewdeanmartin/navio-builder/tree/pypi_branch",
+
     packages=["navio", "navio.builder"],
     py_modules=["sh_it"],
     entry_points={'console_scripts': ['nb=navio.builder:main']},
@@ -26,9 +28,7 @@ setup(
     ],
     keywords=['devops', 'build tool'],
     description="navio-builder, but doesn't import sh and works on windows.",
-    long_description="{}\n{}".format(
-        open("README.md", 'rb').read().decode('utf-8'),
-        open("CHANGES.md", 'rb').read().decode('utf-8')
-    ),
+    long_description="""See [navio-builder](https://pypi.org/project/navio-builder) for details. 
+    This fork exists only to get windows compatibility.""",
     long_description_content_type='text/markdown'
 )
