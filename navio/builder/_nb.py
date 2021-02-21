@@ -11,8 +11,9 @@ import argparse
 import logging
 import os
 import re
-import imp
 import sys
+from pathlib import Path
+import importlib.util
 import time
 try:
     import sh
@@ -59,8 +60,23 @@ def build(args):
         parser.print_help()
         sys.exit(1)
 
-    module = imp.load_source(path.splitext(
-        path.basename(args.file))[0], args.file)
+    # This caused problems in pynt, navio, etc.
+    # it runs an all sorts of imports *inside* of build.py
+    # are not importable, especially if such a module is
+    # in the same folder as build.py, but not if it is pip installed.
+    # module = imp.load_source(path.splitext(
+    #     path.basename(args.file))[0], args.file)
+
+    name = path.splitext(path.basename(args.file))[0]
+    folder = os.path.abspath(name)
+    folder_path = Path(folder).parent
+    # print(folder_path)
+    sys.path.append(str(folder_path))
+    file = args.file
+    spec = importlib.util.spec_from_file_location(name, file)
+    module = importlib.util.module_from_spec(spec)
+    # print(sys.path)
+    spec.loader.exec_module(module)
 
     # Run task and all its dependencies.
     if args.list_tasks:
